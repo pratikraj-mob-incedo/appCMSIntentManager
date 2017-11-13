@@ -1,0 +1,123 @@
+{
+  "id": "00a7b949-c890-48f1-8bf2-030cb2db0bc2",
+  "siteCategory": "entertainment",
+  "accessKey": "BEHGRXJRLEKCHOSREDFE",
+  "apiBaseUrl": "https://develop-api.viewlift.com",
+  "pageEndpoint": "/content/pages",
+  "timestamp": 1497536899601,
+  "internalName": "snagfilms",
+  "faqUrl": "www.snagfilms.com/faq",
+  "beacon": {
+    "siteName": "CBS Local",
+    "clientId": "00a7b949-c890-48f1-8bf2-030cb2db0bc2",
+    "apiBaseUrl": "beacon.viewlift.com"
+  },
+  "companyName": "CBS Local",
+  "site": "CBS Local",
+  "serviceType": "AVOD",
+  "domainName": "cbsdemo.viewlift.com",
+  "brand": {
+    "footer": {
+      "textColor": "#868788",
+      "backgroundColor": "#1e2023",
+      "link": {
+        "textColor": "#868788"
+      },
+      "link--active": {
+        "textColor": "#868788"
+      },
+      "link--hover": {
+        "textColor": "#868788"
+      }
+    },
+    "navigation": {
+      "link": {
+        "textColor": "#ffffff",
+        "style": [
+          "bold"
+        ],
+        "backgroundColor": "#222222"
+      },
+      "link--active": {
+        "style": [
+          "bold"
+        ],
+        "backgroundColor": "#222222"
+      },
+      "dropdown--active": {
+        "textColor": "#ffffff",
+        "backgroundColor": "#222222"
+      },
+      "dropdown--hover": {
+        "textColor": "#ffffff",
+        "backgroundColor": "#222222"
+      },
+      "link--hover": {
+        "textColor": "#ffffff",
+        "style": [
+          "bold"
+        ],
+        "backgroundColor": "#222222"
+      },
+      "dropdown": {
+        "textColor": "#ffffff",
+        "backgroundColor": "#222222"
+      }
+    },
+    "link": {
+      "textColor": "#ffffff"
+    },
+    "cta": {
+      "secondary--hover": {
+        "textColor": "#ffffff",
+        "backgroundColor": "#008ee0",
+        "border": {
+          "color": "#008ee0",
+          "width": "1px"
+        }
+      },
+      "primary": {
+        "textColor": "#ffffff",
+        "backgroundColor": "#008ee0",
+        "border": {
+          "color": "#008ee0",
+          "width": "1px"
+        }
+      },
+      "secondary": {
+        "textColor": "#ffffff",
+        "backgroundColor": "#008ee0",
+        "border": {
+          "color": "#008ee0",
+          "width": "1px"
+        }
+      },
+      "primary--hover": {
+        "textColor": "#ffffff",
+        "backgroundColor": "#008ee0",
+        "border": {
+          "color": "#008ee0",
+          "width": "1px"
+        }
+      }
+    },
+    "link--hover": {
+      "textColor": "#ffffff"
+    },
+    "general": {
+      "textColor": "#ffffff",
+      "pageTitleColor": "#008ee0",
+      "backgroundColor": "#000000",
+      "blockTitleColor": "#008ee0"
+    }
+  },
+  "images": {
+    "placeholderPoster": "https://appcms.viewlift.com/00a7b949-c890-48f1-8bf2-030cb2db0bc2/images/generated/placeholder-poster.png",
+    "placeholderCover": "https://appcms.viewlift.com/00a7b949-c890-48f1-8bf2-030cb2db0bc2/images/generated/placeholder-cover.png"
+  },
+  "version": "0.1.0",
+  "Web": "https://appcms.viewlift.com/00a7b949-c890-48f1-8bf2-030cb2db0bc2/web.json",
+  "iOS": "https://appcms.viewlift.com/00a7b949-c890-48f1-8bf2-030cb2db0bc2/ios.json",
+  "Android": "https://appcms.viewlift.com/00a7b949-c890-48f1-8bf2-030cb2db0bc2/android.json",
+  "gHome": "https://firebasestorage.googleapis.com/v0/b/appcms-1b203.appspot.com/o/gHome.json?alt=media&token=dfd376dd-1fce-48db-affb-facb65839ead"
+}

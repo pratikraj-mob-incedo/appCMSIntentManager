@@ -1,0 +1,88 @@
+service: appcms-intent-manager
+
+frameworkVersion: ">=1.1.0 <2.0.0"
+
+# plugins:
+#   - serverless-dynamodb-local
+#   - serverless-offline
+
+custom:
+  dynamodb:
+    start:
+      port: 8000
+      inMemory: true
+      migrate: true
+
+provider:
+  name: aws
+  runtime: nodejs6.10
+  stage: develop
+  tablePrefix: DEVELOP
+  region: us-east-1
+  environment:
+    GHomeIntentsDynamoDbTable: ${opt:tablePrefix, self:provider.tablePrefix}.GHOME_INTENTS
+    GHomeSiteConfigDynamoDbTable: ${opt:tablePrefix, self:provider.tablePrefix}.GHOME_SITE_CONFIG
+  iamRoleStatements:
+    - Effect: Allow
+      Action:
+        - dynamodb:Query
+        - dynamodb:Scan
+        - dynamodb:GetItem
+        - dynamodb:PutItem
+        - dynamodb:UpdateItem
+        - dynamodb:DeleteItem
+      Resource: 
+        - "arn:aws:dynamodb:${opt:region, self:provider.region}:*:table/${self:provider.environment.GHomeIntentsDynamoDbTable}"
+        - "arn:aws:dynamodb:${opt:region, self:provider.region}:*:table/${self:provider.environment.GHomeSiteConfigDynamoDbTable}"
+
+functions:
+  create:
+    handler: handler.create
+    events:
+      - http:
+          path: create
+          method: post
+          cors: true
+
+resources:
+  Resources:
+    GHomeIntentsDynamoDbTable:
+      Type: 'AWS::DynamoDB::Table'
+      DeletionPolicy: Retain
+      Properties:
+        AttributeDefinitions:
+          -
+            AttributeName: id
+            AttributeType: S
+          -
+            AttributeName: siteID
+            AttributeType: S
+            
+        KeySchema:
+          -
+            AttributeName: siteID
+            KeyType: HASH
+          -
+            AttributeName: id
+            KeyType: RANGE
+        ProvisionedThroughput:
+          ReadCapacityUnits: 1
+          WriteCapacityUnits: 1
+        TableName: ${self:provider.environment.GHomeIntentsDynamoDbTable}
+
+    GHomeSiteConfigDynamoDbTable:
+      Type: 'AWS::DynamoDB::Table'
+      DeletionPolicy: Retain
+      Properties:
+        AttributeDefinitions:
+          -
+            AttributeName: id
+            AttributeType: S
+        KeySchema:
+          -
+            AttributeName: id
+            KeyType: HASH
+        ProvisionedThroughput:
+          ReadCapacityUnits: 1
+          WriteCapacityUnits: 1
+        TableName: ${self:provider.environment.GHomeSiteConfigDynamoDbTable}

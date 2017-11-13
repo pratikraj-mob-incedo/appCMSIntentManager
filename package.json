@@ -1,0 +1,23 @@
+{
+  "name": "appcms-intent-manager",
+  "version": "1.0.0",
+  "description": "",
+  "main": "handler.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "aws-sdk": "^2.131.0",
+    "firebase": "^4.6.0",
+    "firebase-admin": "^5.4.2",
+    "lodash": "^4.17.4",
+    "request": "^2.83.0",
+    "throttled-queue": "https://github.com/pratikraj-mob-incedo/throttled-queue.git#0f5eacd332ebbdf4966be99fef5aa2605ab6f3ec"
+  },
+  "devDependencies": {
+    "serverless-dynamodb-local": "^0.2.26",
+    "serverless-offline": "^3.16.0"
+  }
+}
