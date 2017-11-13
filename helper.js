@@ -17,7 +17,6 @@ module.exports.getRemoteJSON = function(url){
 }
 
 module.exports.createSiteConfig = function(jsonData){
-	console.log("createSiteConfig");
 	const timestamp = new Date().getTime();
 	return new Promise(function(resolve, reject){
 		const params = {
@@ -167,7 +166,6 @@ module.exports.createNewIntent = function(siteID, dialogflow, intentsArray, acti
 	const timestamp = new Date().getTime();
 	return new Promise(function(resolve, reject){
 		var intentObject = generateIntentObject(intentsArray, actionName);
-		// resolve(intentObject);
 		var url = dialogFlowBaseUrl + 'intents';
 	    var headers = {
 	        'Authorization': 'Bearer ' + dialogflow.developerAccessToken,
@@ -267,6 +265,7 @@ module.exports.updateIntent = function(siteID, dialogflow, intentsArray, actionN
 
 function generateIntentObject(intentsArray, actionName){
 	var parameters = [];
+	var events = [];
 	var paramKeys = {};
 	var userSays = intentsArray.map(function(intentText){
 		var paramsList = [];
@@ -305,6 +304,10 @@ function generateIntentObject(intentsArray, actionName){
 		parameters.push(paramKeys[key]);
 	}
 
+	if(actionName === 'defaultCallback'){
+		events.push("welcome");
+	}
+
 	return {
 		"name": actionName,
 		"auto": true,
@@ -315,6 +318,7 @@ function generateIntentObject(intentsArray, actionName){
 			"action": actionName,
 			"parameters": parameters
 		}],
+		"events": events,
 		"webhookUsed": true,
 		"priority": 500000
 	};
