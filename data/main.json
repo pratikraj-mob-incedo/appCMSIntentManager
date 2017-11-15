@@ -8,14 +8,14 @@
   "internalName": "snagfilms",
   "faqUrl": "www.snagfilms.com/faq",
   "beacon": {
-    "siteName": "CBS Local",
+    "siteName": "snagfilms",
     "clientId": "00a7b949-c890-48f1-8bf2-030cb2db0bc2",
     "apiBaseUrl": "beacon.viewlift.com"
   },
-  "companyName": "CBS Local",
-  "site": "CBS Local",
+  "companyName": "Snagfilms",
+  "site": "Snagfilms",
   "serviceType": "AVOD",
-  "domainName": "cbsdemo.viewlift.com",
+  "domainName": "www.snagfilms.com",
   "brand": {
     "footer": {
       "textColor": "#868788",
@@ -119,5 +119,5 @@
   "Web": "https://appcms.viewlift.com/00a7b949-c890-48f1-8bf2-030cb2db0bc2/web.json",
   "iOS": "https://appcms.viewlift.com/00a7b949-c890-48f1-8bf2-030cb2db0bc2/ios.json",
   "Android": "https://appcms.viewlift.com/00a7b949-c890-48f1-8bf2-030cb2db0bc2/android.json",
-  "gHome": "https://firebasestorage.googleapis.com/v0/b/appcms-1b203.appspot.com/o/gHome.json?alt=media&token=dfd376dd-1fce-48db-affb-facb65839ead"
+  "gHome": "https://firebasestorage.googleapis.com/v0/b/appcms-1b203.appspot.com/o/gHome.json?alt=media&token=b43c1906-2158-41f0-b91c-3ba47fdba40d"
 }

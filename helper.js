@@ -304,8 +304,10 @@ function generateIntentObject(intentsArray, actionName){
 		parameters.push(paramKeys[key]);
 	}
 
-	if(actionName === 'defaultCallback'){
-		events.push("welcome");
+	if(actionName === 'welcome'){
+		events.push({
+	        "name": "WELCOME"
+		});
 	}
 
 	return {
@@ -322,117 +324,4 @@ function generateIntentObject(intentsArray, actionName){
 		"webhookUsed": true,
 		"priority": 500000
 	};
-
-
-	// return {
-	//    "name": "change appliance state",
-	//    "auto": true,
-	//    "contexts": [],
-	//    "templates": [],
-	//    "userSays": [
-	//       {
-	//          "data": [
-	//             {
-	//                "text": "turn "
-	//             },
-	//             {
-	//                "text": "on",
-	//                "alias": "state",
-	//                "meta": "@state"
-	//             },
-	//             {
-	//                "text": " the "
-	//             },
-	//             {
-	//                "text": "kitchen lights",
-	//                "alias": "appliance",
-	//                "meta": "@appliance"
-	//             }
-	//          ],
-	//          "isTemplate": false,
-	//          "count": 0
-	//       },
-	//       {
-	//          "data": [
-	//             {
-	//                "text": "switch the "
-	//             },
-	//             {
-	//                "text": "heating",
-	//                "alias": "appliance",
-	//                "meta": "@appliance"
-	//             },
-	//             {
-	//                "text": " "
-	//             },
-	//             {
-	//                "text": "off",
-	//                "alias": "state",
-	//                "meta": "@state"
-	//             }
-	//          ],
-	//          "isTemplate": false,
-	//          "count": 0
-	//       }
-	//    ],
-	//    "responses": [
-	//       {
-	//          "resetContexts": false,
-	//          "action": "set-appliance",
-	//          "affectedContexts": [
-	//             {
-	//                "name": "house",
-	//                "lifespan": 10
-	//             }
-	//          ],
-	//          "parameters": [
-	//             {
-	//                "dataType": "@appliance",
-	//                "name": "appliance",
-	//                "value": "\$appliance"
-	//             },
-	//             {
-	//                "dataType": "@state",
-	//                "name": "state",
-	//                "value": "\$state"
-	//             }
-	//          ],
-	//          "speech": "Turning the \$appliance \$state\!"
-	//       }
-	//    ],
-	//    "priority": 500000
-	// }
-}
-
-
-function asyncLoop(iterations, func, callback) {
-    var index = 0;
-    var done = false;
-    var loop = {
-        next: function() {
-            if (done) {
-                return;
-            }
-
-            if (index < iterations) {
-                index++;
-                func(loop);
-
-            } else {
-                done = true;
-                callback();
-            }
-        },
-
-        iteration: function() {
-            return index - 1;
-        },
-
-        break: function() {
-            done = true;
-            callback();
-        }
-    };
-    loop.next();
-    return loop;
 }

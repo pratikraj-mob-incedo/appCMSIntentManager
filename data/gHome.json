@@ -5,8 +5,8 @@
 		"developerAccessToken": "f11cbf3023f0463fa252890ab945dd8e"
 	},
 	"intents": {
-		"defaultCallback": [
-			"wellcome"
+		"welcome": [
+			"welcome"
 		],
 		"getNew": [
 			"Tell me whats fresh",
