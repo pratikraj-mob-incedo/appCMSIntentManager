@@ -1,123 +1,170 @@
 {
-  "id": "00a7b949-c890-48f1-8bf2-030cb2db0bc2",
-  "siteCategory": "entertainment",
-  "accessKey": "BEHGRXJRLEKCHOSREDFE",
-  "apiBaseUrl": "https://develop-api.viewlift.com",
+  "id": "00000149-86ec-d4f3-a7e9-e6fe760d0000",
+  "accessKey": "NTMUBHGZLWBVZXSGXQJL",
+  "apiBaseUrl": "https://prod-api.viewlift.com",
   "pageEndpoint": "/content/pages",
-  "timestamp": 1497536899601,
+  "timestamp": 1510695830606,
   "internalName": "snagfilms",
-  "faqUrl": "www.snagfilms.com/faq",
+  "category": "entertainment",
+  "faqUrl": "www.SnagFilmsWatchFreeStreamingMoviesOnline.com/faq",
   "beacon": {
-    "siteName": "snagfilms",
-    "clientId": "00a7b949-c890-48f1-8bf2-030cb2db0bc2",
-    "apiBaseUrl": "beacon.viewlift.com"
+    "siteName": "SnagFilms Watch Free Streaming Movies Online",
+    "clientId": "00000149-86ec-d4f3-a7e9-e6fe760d0000",
+    "apiBaseUrl": "https://1a7ahu122g.execute-api.us-east-1.amazonaws.com/production_beacon/firehouse-proxy"
   },
-  "companyName": "Snagfilms",
-  "site": "Snagfilms",
+  "companyName": "Snagfilms Inc",
+  "site": "SnagFilms Watch Free Streaming Movies Online",
   "serviceType": "AVOD",
   "domainName": "www.snagfilms.com",
+  "domainNames": [
+    "www.snagfilms.com"
+  ],
+  "socialMedia": {
+    "instagram": {
+      "url": "https://www.instagram.com/snagfilms/"
+    },
+    "facebook": {
+      "url": "https://www.facebook.com/snagfilms",
+      "appId": "227991737252697"
+    },
+    "youtube": {
+      "url": "https://www.youtube.com/user/snagfilms"
+    },
+    "googlePlus": {
+      "signin": true
+    }
+  },
+  "appVersions": {
+    "ios": {
+      "minimum": "2.0.1",
+      "latest": "2.3.1",
+      "updateUrl": "https://itunes.apple.com/us/app/hoichoi-bengali-movies/id1188755540?ls=1&mt=8"
+    },
+    "android": {
+      "minimum": "2.0.50",
+      "latest": "2.0.50",
+      "updateUrl": "https://play.google.com/store/apps/details?id=com.viewlift.hoichoi"
+    }
+  },
   "brand": {
-    "footer": {
-      "textColor": "#868788",
-      "backgroundColor": "#1e2023",
-      "link": {
-        "textColor": "#868788"
-      },
-      "link--active": {
-        "textColor": "#868788"
-      },
-      "link--hover": {
-        "textColor": "#868788"
-      }
-    },
-    "navigation": {
-      "link": {
-        "textColor": "#ffffff",
-        "style": [
-          "bold"
-        ],
-        "backgroundColor": "#222222"
-      },
-      "link--active": {
-        "style": [
-          "bold"
-        ],
-        "backgroundColor": "#222222"
-      },
-      "dropdown--active": {
-        "textColor": "#ffffff",
-        "backgroundColor": "#222222"
-      },
-      "dropdown--hover": {
-        "textColor": "#ffffff",
-        "backgroundColor": "#222222"
-      },
-      "link--hover": {
-        "textColor": "#ffffff",
-        "style": [
-          "bold"
-        ],
-        "backgroundColor": "#222222"
-      },
-      "dropdown": {
-        "textColor": "#ffffff",
-        "backgroundColor": "#222222"
-      }
-    },
-    "link": {
+    "general": {
+      "backgroundColor": "#000000",
+      "blockTitleColor": "#008ee0",
+      "pageTitleColor": "#008ee0",
       "textColor": "#ffffff"
     },
     "cta": {
-      "secondary--hover": {
-        "textColor": "#ffffff",
-        "backgroundColor": "#008ee0",
-        "border": {
-          "color": "#008ee0",
-          "width": "1px"
-        }
-      },
-      "primary": {
-        "textColor": "#ffffff",
-        "backgroundColor": "#008ee0",
-        "border": {
-          "color": "#008ee0",
-          "width": "1px"
-        }
-      },
       "secondary": {
-        "textColor": "#ffffff",
-        "backgroundColor": "#008ee0",
         "border": {
           "color": "#008ee0",
           "width": "1px"
-        }
+        },
+        "backgroundColor": "#008ee0",
+        "textColor": "#ffffff"
       },
       "primary--hover": {
-        "textColor": "#ffffff",
-        "backgroundColor": "#008ee0",
         "border": {
           "color": "#008ee0",
           "width": "1px"
-        }
+        },
+        "backgroundColor": "#008ee0",
+        "textColor": "#ffffff"
+      },
+      "secondary--hover": {
+        "border": {
+          "color": "#008ee0",
+          "width": "1px"
+        },
+        "backgroundColor": "#008ee0",
+        "textColor": "#ffffff"
+      },
+      "primary": {
+        "border": {
+          "color": "#008ee0",
+          "width": "1px"
+        },
+        "backgroundColor": "#008ee0",
+        "textColor": "#ffffff"
       }
     },
     "link--hover": {
       "textColor": "#ffffff"
     },
-    "general": {
-      "textColor": "#ffffff",
-      "pageTitleColor": "#008ee0",
-      "backgroundColor": "#000000",
-      "blockTitleColor": "#008ee0"
-    }
+    "navigation": {
+      "link--hover": {
+        "backgroundColor": "#000000",
+        "style": [
+          "bold"
+        ],
+        "textColor": "#ffffff"
+      },
+      "link--active": {
+        "backgroundColor": "#000000",
+        "style": [
+          "bold"
+        ]
+      },
+      "dropdown--active": {
+        "backgroundColor": "#000000",
+        "textColor": "#ffffff"
+      },
+      "link": {
+        "backgroundColor": "#000000",
+        "style": [
+          "bold"
+        ],
+        "textColor": "#ffffff"
+      },
+      "dropdown--hover": {
+        "backgroundColor": "#000000",
+        "textColor": "#ffffff"
+      },
+      "dropdown": {
+        "backgroundColor": "#000000",
+        "textColor": "#ffffff"
+      }
+    },
+    "footer": {
+      "backgroundColor": "#1e2023",
+      "textColor": "#868788"
+    },
+    "link": {
+      "textColor": "#ffffff"
+    },
+    "themeId": "07"
   },
   "images": {
-    "placeholderPoster": "https://appcms.viewlift.com/00a7b949-c890-48f1-8bf2-030cb2db0bc2/images/generated/placeholder-poster.png",
-    "placeholderCover": "https://appcms.viewlift.com/00a7b949-c890-48f1-8bf2-030cb2db0bc2/images/generated/placeholder-cover.png"
+    "placeholderPoster": "https://appcmsprod.viewlift.com/00000149-86ec-d4f3-a7e9-e6fe760d0000/images/placeholder-poster.png",
+    "placeholderCover": "https://appcmsprod.viewlift.com/00000149-86ec-d4f3-a7e9-e6fe760d0000/images/placeholder-cover.png"
   },
-  "version": "0.1.0",
-  "Web": "https://appcms.viewlift.com/00a7b949-c890-48f1-8bf2-030cb2db0bc2/web.json",
-  "iOS": "https://appcms.viewlift.com/00a7b949-c890-48f1-8bf2-030cb2db0bc2/ios.json",
-  "Android": "https://appcms.viewlift.com/00a7b949-c890-48f1-8bf2-030cb2db0bc2/android.json",
-  "gHome": "https://firebasestorage.googleapis.com/v0/b/appcms-1b203.appspot.com/o/gHome.json?alt=media&token=b43c1906-2158-41f0-b91c-3ba47fdba40d"
+  "customerService": {
+    "email": "feedback@snagfilms.com"
+  },
+  "emailFeedbackTech": "feedback@snagfilms.com",
+  "forceLogin": false,
+  "isDownloadable": true,
+  "features": {
+    "mobile_app_downloads": true,
+    "user_content_rating": true,
+    "free_preview": {
+      "isFreePreview": false,
+      "length": {
+        "unit": "Percent",
+        "multiplier": "1"
+      }
+    },
+    "auto_play": false,
+    "mute_sound": false,
+    "casting": true,
+    "trick_play": false
+  },
+  "version": "0.1095.0",
+  "Web": "https://appcmsprod.viewlift.com/00000149-86ec-d4f3-a7e9-e6fe760d0000/web.json?version=0.1095.0",
+  "iOS": "https://appcmsprod.viewlift.com/00000149-86ec-d4f3-a7e9-e6fe760d0000/ios.json?version=0.1095.0",
+  "Android": "https://appcmsprod.viewlift.com/00000149-86ec-d4f3-a7e9-e6fe760d0000/android.json?version=0.1095.0",
+  "xbox": "https://appcmsprod.viewlift.com/00000149-86ec-d4f3-a7e9-e6fe760d0000/xbox.json?version=0.1095.0",
+  "roku": "https://appcmsprod.viewlift.com/00000149-86ec-d4f3-a7e9-e6fe760d0000/roku.json?version=0.1095.0",
+  "appleTv": "https://appcmsprod.viewlift.com/00000149-86ec-d4f3-a7e9-e6fe760d0000/appleTv.json?version=0.1095.0",
+  "fireTv": "https://appcmsprod.viewlift.com/00000149-86ec-d4f3-a7e9-e6fe760d0000/fireTv.json?version=0.1095.0",
+  "gHome": "https://firebasestorage.googleapis.com/v0/b/appcms-1b203.appspot.com/o/gHome.json?alt=media&token=67ec04db-9ef2-4de2-bb4d-5e018cd062e6"
 }

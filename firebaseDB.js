@@ -20,6 +20,24 @@ module.exports.initializeDB = function(){
 	});
 }
 
+module.exports.closeDB = function(){
+	var firebaseConfig = config.firebase;
+	return new Promise(function(resolve, reject){
+		if(dbConnection == null){
+			if(admin.apps.length){
+				dbConnection = admin.app().database();
+			}else{
+				dbConnection = admin.initializeApp({
+					credential: admin.credential.cert(firebaseConfig.account),
+					databaseURL: firebaseConfig.url
+				}).database();
+			}
+		}
+		dbConnection.goOffline();
+		resolve();
+	});
+}
+
 module.exports.insertData = function(key, data){
 	return new Promise(function(resolve, reject){
 		dbConnection.ref(key).set(data);

@@ -18,36 +18,26 @@ module.exports.getRemoteJSON = function(url){
 
 module.exports.createSiteConfig = function(jsonData){
 	const timestamp = new Date().getTime();
+	jsonData.createdAt = timestamp;
+	jsonData.updatedAt = timestamp;
 	return new Promise(function(resolve, reject){
 		const params = {
 			TableName: process.env.GHomeSiteConfigDynamoDbTable,
-			Item: {
-				id: jsonData.id,
-				version: jsonData.version,
-				site: jsonData.site,
-				internalName: jsonData.internalName,
-				siteCategory: jsonData.siteCategory,
-				accessKey: jsonData.accessKey,
-				apiBaseUrl: jsonData.apiBaseUrl,
-				companyName: jsonData.companyName,
-				serviceType: jsonData.serviceType,
-				mainJSON: jsonData.mainJSON,
-				gHomeJSON: jsonData.gHome,
-				createdAt: timestamp,
-				updatedAt: timestamp
-			},
+			Item: jsonData
 		};
+
+		console.log("Creating site config with data: ", jsonData.actionStack);
 
 		dynamoDB.put(params, (error) => {
 			if (error) {
 				reject(error);
 				return;
 			}else{
-				console.log("Creating site config on firebase.");
 				var key = 'siteData/' + jsonData.internalName;
 				firebaseDB.insertData(key, params.Item)
 				.then(function(){
 					resolve(jsonData);
+					return;
 				});
 			}
 		});
@@ -57,6 +47,8 @@ module.exports.createSiteConfig = function(jsonData){
 module.exports.updateSiteData = function(jsonData){
 	const timestamp = new Date().getTime();
 	const siteID = jsonData.id;
+	jsonData.createdAt = timestamp;
+	jsonData.updatedAt = timestamp;
 	return new Promise(function(resolve, reject){
 		const params = {
 			TableName: process.env.GHomeSiteConfigDynamoDbTable,
@@ -72,21 +64,7 @@ module.exports.updateSiteData = function(jsonData){
 				if(result.Items.length){
 					const params = {
 						TableName: process.env.GHomeSiteConfigDynamoDbTable,
-						Item: {
-							id: jsonData.id,
-							version: jsonData.version,
-							site: jsonData.site,
-							internalName: jsonData.internalName,
-							siteCategory: jsonData.siteCategory,
-							accessKey: jsonData.accessKey,
-							apiBaseUrl: jsonData.apiBaseUrl,
-							companyName: jsonData.companyName,
-							serviceType: jsonData.serviceType,
-							mainJSON: jsonData.mainJSON,
-							gHomeJSON: jsonData.gHome,
-							createdAt: timestamp,
-							updatedAt: timestamp
-						},
+						Item: jsonData
 					};
 
 					dynamoDB.put(params, (error) => {
@@ -132,8 +110,10 @@ module.exports.getPublishedIntents = function(siteID){
 			console.log(error);
 			if (error) {
 				resolve({});
+				return;
 			}else{
 				resolve(result.Items);
+				return;
 			}
 		});
 	});
@@ -154,8 +134,10 @@ module.exports.getIntents = function(dialogflow){
 		request(options, function (error, response, body){
 			if(!error && response.statusCode === 200){
 				resolve(JSON.parse(body));
+				return;
 			}else{
 				reject(error);
+				return;
 			}
 		});
 	});

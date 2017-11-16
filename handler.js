@@ -18,29 +18,54 @@ module.exports.create = (event, context, callback) => {
 			return helper.getRemoteJSON(requestBody.mainJSON);
 		})
 		.then(function(response){
+			if(!response.gHome){ 
+				throw new Error({"error": "Unable to fetch google home data from the specified url in main.json"});
+			}
 			mainJSONData = response;
 			siteID = mainJSONData.id;
-			mainJSONData.mainJSON = requestBody.mainJSON;
-			return helper.updateSiteData(mainJSONData)			
-		})
-		.then(function(){
-			if(!mainJSONData.gHome){ reject({"error": "Unable to fetch google home data from the specified url in main.json"}); return; }
 			return helper.getRemoteJSON(mainJSONData.gHome);
 		})
 		.then(function(response){
+			var actionStack = {};
 			gHomeJSONData = response;
-			if(!gHomeJSONData.dialogFlow || !gHomeJSONData.intents){ reject({"error": "Please update details for google home."}); return; }
+			if(!gHomeJSONData.dialogFlow){
+				throw new Error({"error": "Please update details for google home."});
+			}
+			for(var actionName in gHomeJSONData.actions){
+				actionStack[actionName] = {
+					responseText: gHomeJSONData.actions[actionName].responseText || null,
+					categoryMap: gHomeJSONData.actions[actionName].categoryMap || null
+				}
+			}
+			var siteData = {
+				id: mainJSONData.id,
+				version: mainJSONData.version,
+				site: mainJSONData.site,
+				internalName: mainJSONData.internalName,
+				category: mainJSONData.category,
+				accessKey: mainJSONData.accessKey,
+				apiBaseUrl: mainJSONData.apiBaseUrl,
+				companyName: mainJSONData.companyName,
+				serviceType: mainJSONData.serviceType,
+				gHomeJSON: mainJSONData.gHome,
+				categoriesPageId: gHomeJSONData.categoriesPageId,
+				actionStack: actionStack
+			}
+			return helper.updateSiteData(siteData);
+		})
+		.then(function(response){
 			return helper.getPublishedIntents(siteID);
 		})
 		.then(function(intents){
 			var createUpdateIntentPromise = [];
-			for(var action in gHomeJSONData.intents){
-				if(gHomeJSONData.intents[action].length > 0){
+			for(var action in gHomeJSONData.actions){
+				if(gHomeJSONData.actions[action].intents.length > 0){
 					createUpdateIntentPromise.push(new Promise(function(resolve, reject){
 						throttle(function(action) {
 							var intentLocal = _.find(intents, function(o){ return o.actionName === action; });
 							if(!intentLocal){
-								helper.createNewIntent(siteID, gHomeJSONData.dialogFlow, gHomeJSONData.intents[action], action)
+								console.log("Intent Local Not Found For " + action);
+								helper.createNewIntent(siteID, gHomeJSONData.dialogFlow, gHomeJSONData.actions[action].intents, action)
 								.then(function(response){
 									resolve(response);
 								})
@@ -49,7 +74,7 @@ module.exports.create = (event, context, callback) => {
 								});
 							}else{
 								console.log("Intent Local Found For " + action);
-								helper.updateIntent(siteID, gHomeJSONData.dialogFlow, gHomeJSONData.intents[action], action, intentLocal.id)
+								helper.updateIntent(siteID, gHomeJSONData.dialogFlow, gHomeJSONData.actions[action].intents, action, intentLocal.id)
 								.then(function(response){
 									resolve(response);
 								})
@@ -63,12 +88,12 @@ module.exports.create = (event, context, callback) => {
 			}
 			Promise.all(createUpdateIntentPromise)
 			.then(function(response){
-				console.log("Execution completed");
 				resolve(response);
 			});
 		})
 		.catch(function(err){
-			reject(err); return;
+			reject(err);
+			return;
 		});
 	});
 
@@ -76,15 +101,22 @@ module.exports.create = (event, context, callback) => {
 	.then(function(data){
 		const response = {
 			statusCode: 200,
-			body: JSON.stringify(data),
+			body: JSON.stringify({
+				success: true,
+				data: data
+			}),
 		};
-		callback(null, response);
+		// callback(null, response);
+		context.done(null, response);
 	}).catch(function(err){
-		console.log(err);
 		const response = {
 			statusCode: 200,
-			error: JSON.stringify(err),
+			error: JSON.stringify({
+				success: false,
+				err: err
+			}),
 		};
-		callback(null, response);
+		// callback(null, response);
+		context.done(null, response);
 	});
 };

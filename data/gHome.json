@@ -4,33 +4,51 @@
 		"clientAccessToken": "c8da2b67f6c64914be21205d61f7530c",
 		"developerAccessToken": "f11cbf3023f0463fa252890ab945dd8e"
 	},
-	"intents": {
-		"welcome": [
-			"welcome"
-		],
-		"getNew": [
-			"Tell me whats fresh",
-			"Tell me whats new",
-			"Tell me some new courses",
-			"What do you have for me"
-		],
-		"getPopular": [
-			"Tell me whats popular",
-			"What are people excited about",
-			"Whats new and exciting",
-			"List popular videos"
-		],
-		"describeContent": [
-			"Can you describe {coursename}",
-			"Describe {coursename}",
-			"can you give me details about {coursename}",
-			"tell me about {coursename}"
-		],
-		"categorySearch": [
-			"Are there any good {category} courses",
-			"What are some good {category} courses",
-			"Whats a good {category} course",
-			"Recommend some {category} courses"
-		]
+	"categoriesPageId": "40361f1e-9854-43ff-93cb-6ab47b4e407c",
+	"actions": {
+		"welcome": {
+			"intents": [
+				"welcome"
+			],
+			"responseText": "Hi {firstName}"
+		},
+		"getNew": {
+			"intents": [
+				"Tell me whats fresh",
+				"Tell me whats new",
+				"Tell me some new courses",
+				"What do you have for me"
+			],
+			"responseText": "Some of our latest movies are ",
+			"categoryMap": "Action"
+		},
+		"getPopular": {
+			"intents": [
+				"Tell me whats popular",
+				"What are people excited about",
+				"Whats new and exciting",
+				"List popular videos"
+			],
+			"responseText": "Some of our popular movies are ",
+			"categoryMap": "Award Winning"
+		},
+		"categorySearch": {
+			"intents": [
+				"Are there any good {category} courses",
+				"What are some good {category} courses",
+				"Whats a good {category} course",
+				"Recommend some {category} courses"
+			],
+			"responseText": "Some of our {category} movies are "
+		},
+		"describeContent": {
+			"intents": [
+				"Can you describe {coursename}",
+				"Describe {coursename}",
+				"can you give me details about {coursename}",
+				"tell me about {coursename}"
+			],
+			"responseText": ""
+		}
 	}
 }
